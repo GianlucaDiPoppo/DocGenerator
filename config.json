@@ -1,0 +1,19 @@
+{
+  "colonne": {
+    "tipo_b": 1,
+    "titolo_d": 3,
+    "numero_e": 4,
+    "ftr_ret_p": 15,
+    "det_q": 16
+  },
+  "frasi": {
+    "ftr_intro": "All’interno della transazione vengono utilizzati i seguenti FTR:",
+    "det_intro": "All’interno della transazione vengono utilizzati i seguenti DET:",
+    "ret_dati": "I RET presenti all'interno dell'entità sono:",
+    "det_dati": "I DET che rappresentano l'entità sono:"
+  },
+  "spazi": {
+    "tra_blocchi": 7,
+    "tra_frasi": 1
+  }
+}
