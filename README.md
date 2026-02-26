@@ -12,7 +12,7 @@ FPAnalysis Documentation Generator from Excel to Docx
 ## 🚀 Guida all'avvio rapido
 
 1. **Scarica il pacchetto**: Scarica il file `.zip` dall'ultima [Release] e estrai il contenuto in una cartella.
-2. **Avvia l'applicazione**: Fai doppio clic su `Doc_Generator.exe`.
+2. **Avvia l'applicazione**: Fai doppio clic su `main.exe`.
 3. **Sicurezza di Windows**: Se appare l'avviso "Windows ha protetto il PC", clicca su *Ulteriori informazioni* e poi su **Esegui comunque**.
 
 ---
