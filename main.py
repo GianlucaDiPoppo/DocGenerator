@@ -88,7 +88,7 @@ class App(ctk.CTk):
         ctk.CTkButton(self.tab_gen, text="AVVIA", fg_color="green", command=self.run).pack(pady=20)
 
     def init_set(self):
-        # In caso, aggiungere campi per modificare json
+        # aggiungere i campi per modificare config.json
         ctk.CTkLabel(self.tab_set, text="Modifica config.json per cambiare colonne/testi").pack(pady=50)
 
     def carica(self):
@@ -108,6 +108,5 @@ class App(ctk.CTk):
                     if messagebox.askyesno("Update", f"Nuova versione {ultima} disponibile. Scaricare?"):
                         webbrowser.open(r.json()["html_url"])
         except: pass
-
 
 if __name__ == "__main__": App().mainloop()
