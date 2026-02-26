@@ -5,7 +5,7 @@ import os, json, requests, webbrowser
 from docx import Document
 
 # --- CONFIGURAZIONE ---
-VERSIONE_ATTUALE = "v1.0.0"
+VERSIONE_ATTUALE = "v1.0.1"
 REPO_GITHUB = "GianlucaDiPoppo/DocGenerator" 
 CONFIG_FILE = "config.json"
 
