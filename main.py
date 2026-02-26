@@ -6,7 +6,7 @@ from docx import Document
 
 # --- CONFIGURAZIONE ---
 VERSIONE_ATTUALE = "v1.0.0"
-REPO_GITHUB = "tuo_utente/tua_repo" # Cambia con i tuoi dati GitHub
+REPO_GITHUB = "GianlucaDiPoppo/DocGenerator" 
 CONFIG_FILE = "config.json"
 
 def carica_config():
@@ -88,7 +88,7 @@ class App(ctk.CTk):
         ctk.CTkButton(self.tab_gen, text="AVVIA", fg_color="green", command=self.run).pack(pady=20)
 
     def init_set(self):
-        # Qui aggiungeresti i campi per modificare config.json come visto prima
+        # In caso, aggiungere campi per modificare json
         ctk.CTkLabel(self.tab_set, text="Modifica config.json per cambiare colonne/testi").pack(pady=50)
 
     def carica(self):
@@ -108,5 +108,6 @@ class App(ctk.CTk):
                     if messagebox.askyesno("Update", f"Nuova versione {ultima} disponibile. Scaricare?"):
                         webbrowser.open(r.json()["html_url"])
         except: pass
+
 
 if __name__ == "__main__": App().mainloop()
