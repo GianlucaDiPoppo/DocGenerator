@@ -88,8 +88,40 @@ class App(ctk.CTk):
         ctk.CTkButton(self.tab_gen, text="AVVIA", fg_color="green", command=self.run).pack(pady=20)
 
     def init_set(self):
-        # aggiungere i campi per modificare config.json
-        ctk.CTkLabel(self.tab_set, text="Modifica config.json per cambiare colonne/testi").pack(pady=50)
+            # Titolo della scheda
+            ctk.CTkLabel(self.tab_set, text="Configurazione Colonne Excel (Indici 0, 1, 2...)", font=("Arial", 14, "bold")).pack(pady=10)
+
+            # Creiamo un dizionario per conservare i campi di testo
+            self.inputs = {}
+            
+            # Creiamo i campi per le colonne
+            for chiave, valore in self.config_data["colonne"].items():
+                frame = ctk.CTkFrame(self.tab_set)
+                frame.pack(fill="x", padx=20, pady=2)
+                ctk.CTkLabel(frame, text=f"{chiave}:", width=150).pack(side="left")
+                entry = ctk.CTkEntry(frame)
+                entry.insert(0, str(valore))
+                entry.pack(side="right", expand=True, fill="x", padx=10)
+                self.inputs[chiave] = entry
+
+            # Tasto Salva
+            ctk.CTkButton(self.tab_set, text="SALVA IMPOSTAZIONI", fg_color="blue", command=self.salva_impostazioni).pack(pady=20)
+
+    def salva_impostazioni(self):
+        try:
+            # Recuperiamo i valori dai campi di testo e aggiorniamo il dizionario
+            for chiave in self.config_data["colonne"]:
+                self.config_data["colonne"][chiave] = int(self.inputs[chiave].get())
+            
+            # Salviamo su file JSON
+            with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+                json.dump(self.config_data, f, indent=4)
+            
+            messagebox.showinfo("Successo", "Impostazioni salvate correttamente in config.json!")
+        except ValueError:
+            messagebox.showerror("Errore", "Inserisci solo numeri interi per le colonne!")
+        except Exception as e:
+            messagebox.showerror("Errore", f"Impossibile salvare: {e}")
 
     def carica(self):
         p = filedialog.askopenfilename(filetypes=[("Excel", "*.xlsx")])
